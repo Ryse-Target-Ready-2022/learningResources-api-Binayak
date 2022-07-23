@@ -2,6 +2,7 @@ package com.target.rysetii.learningresourcesapi.service;
 
 import com.target.rysetii.learningresourcesapi.Repository.LearningResourceRepository;
 import com.target.rysetii.learningresourcesapi.entity.LearningResource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import static java.util.stream.Collectors.toList;
 @Service
     public class LearningResourceService {
 
+    @Autowired
     private final LearningResourceRepository learningResourceRepository;
 
     public LearningResourceService(LearningResourceRepository learningResourceRepository) {
@@ -49,4 +51,7 @@ import static java.util.stream.Collectors.toList;
         return learningResources;
     }
 
+    public void deleteLearningResourceById(int learningResourceId) {
+        learningResourceRepository.deleteById(learningResourceId);
     }
+}
